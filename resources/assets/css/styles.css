@@ -1,0 +1,286 @@
+/* LOADER PAGE/ */
+
+.loader-page {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: #ffffff;
+    z-index: 9999;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.double-bounce1, .double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #000000;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+  animation: sk-bounce 2.0s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s;
+}
+
+@-webkit-keyframes sk-bounce {
+  0%, 100% { -webkit-transform: scale(0.0) }
+  50% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bounce {
+  0%, 100% { 
+    transform: scale(0.0);
+    -webkit-transform: scale(0.0);
+  } 50% { 
+    transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+  }
+}
+
+
+
+
+
+.navbar-nav > .user-menu > .dropdown-menu {
+    width: 180px;
+}
+.loader-page i {
+    margin: 30%;
+    font-size: 60px;
+    color: #000000;
+}
+
+.content-wrapper {
+    position: relative;
+}
+.content {
+    background-color: #ffffff;
+    margin: 15px 0 0 0;
+}
+.logoLogo {
+    margin: 0 auto;
+}
+.loginBody {
+    background-color: #ffffff;
+}
+#loginContainer {
+    padding: 80px 0 0 0;
+}
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+    font-weight: normal;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.profile-img
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+
+
+
+
+
+.box-body .btnsContainer {
+    text-align: right;
+    padding: 10px 0;
+}
+div.ui-datepicker {
+    font-size:0.84em;
+}
+i.min, i.max {
+    cursor: pointer;
+}
+.no-padding {
+    padding: 0;
+}
+table.dataTable thead .sorting::after,
+table.dataTable thead .sorting_asc::after,
+table.dataTable thead .sorting_desc::after,
+table.dataTable thead .sorting_asc_disabled::after,
+table.dataTable thead .sorting_desc_disabled::after {
+    bottom: auto;
+    top: 8px;
+}
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+}
+.sorting, .sorting_desc, .sorting_asc {
+    cursor: pointer;
+}
+table.dataTable thead th.sorting,
+table.dataTable thead th.sorting_asc,
+table.dataTable thead th.sorting_desc {
+    vertical-align: top;
+}
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    font-family: FontAwesome;
+    vertical-align: top;
+}
+table.dataTable thead th.sorting:after {
+    content: "\f0dc";
+    color: #000000;
+    padding-left: 5px;
+}
+table.dataTable thead th.sorting_asc:after {
+    content: "\f0de";
+    color: #555555;
+    padding-left: 5px;
+}
+table.dataTable thead th.sorting_desc:after {
+    content: "\f0dd";
+    color: #555555;
+    padding-left: 5px;
+}
+.table td.actions {
+    text-align: center;
+}
+table.dataTable .fa {
+    font-size: 18px;
+    padding: 2px 0;
+}
+div.ui-datepicker {
+    font-size:0.84em;
+}
+i.min, i.max {
+    cursor: pointer;
+}
+div.interval_inputs {
+    width: 100%;
+    text-align: right;
+}
+div.interval_inputs input {
+    margin: 5px 0 0 5px;
+    width: 170px;
+}
+.actionButton {
+   margin: 0 2px;
+}
+.btn.no-pointer {
+    cursor: auto;
+}
+#confirm {
+    padding: 15px 0 0 0;
+}
+.formMainImg {
+    padding-bottom: 10px; 
+    max-width: 100px;
+}
+.table_image {
+    display: block;
+    margin: 0 auto;
+    max-width: 80px;
+}
+.table_wrapper h3 {
+    margin: 0 0 15px 0;
+}
+.dataTables_empty {
+    text-align: center;
+}
+.pagination, .dataTables_filter label {
+    float: right;
+}
+.dataTables_filter label input {
+    margin: 0 0 0 10px;
+}
+.input-group-addon .fa {
+    font-size: 16px;
+}
+.image_inspect {
+    display: block;
+    width: 160px;
+}
+.menus_list {
+    padding: 10px 10px 10px 0;
+    display: inline-block;
+    text-align: center;
+}
+img.form-item-img {
+    width: 50%;
+    display: block;
+}
+
+
+
+
+@media only screen and (max-width : 768px) {
+    #loginContainer {
+        padding: 40px 15px;
+    }
+}

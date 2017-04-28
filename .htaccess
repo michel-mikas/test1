@@ -1,0 +1,11 @@
+<IfModule mod_deflate.c>
+    <FilesMatch "\.(html|php|txt|xml|js|css)$">
+        SetOutputFilter DEFLATE
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+	RewriteCond %{REQUEST_URI} !^public
+	RewriteRule ^(.*)$ /public/$1 [L]
+</IfModule>
