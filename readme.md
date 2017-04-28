@@ -1,3 +1,12 @@
+# cloudoki-test-master
+
+Project made in laravel 5.3 and using the framework views for client side
+
+DB_type: Sqlite,
+<br>
+Reset_DB: Just erase the content of database/db.sqlite and run the cli command: <b>php artisan migrate:refresh --seed</b>
+
+
 # Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)

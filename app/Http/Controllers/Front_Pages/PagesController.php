@@ -76,16 +76,26 @@ class PagesController extends Controller
         }
 
         $customer = \App\Customer::find($request->id_customer);
-        $customer->revenue = $customer->revenue + $total;
-        $customer->save();
 
         $new_order = $this->process_order($customer, $prods, $total);
-        $new_order->products()->attach($to_attach);
-        $offers = $this->get_offer($new_order);
+        $this->get_offers_and_attach($new_order, $prods, $to_attach);
+
+        $customer->revenue = $customer->revenue + $new_order->total;
+        $customer->save();
+
         $msg = 'Yooo nice order: Total: ' .$new_order->total. ' €, Discount: ' .($total - $new_order->total). ' €';
         Session::flash('flash_success', $msg);
         return redirect()->back();
 
+    }
+
+    // quantidade de produtos de uma determinada categoria
+    protected function get_prods_from_cat($prods, $id_cat) {
+        $prods_from_cat = array_filter($prods, function($prod, $key) use($id_cat) {
+            return $prod->category->id == $id_cat;
+        }, ARRAY_FILTER_USE_BOTH);
+
+        return $prods_from_cat;
     }
 
     protected function process_order($customer, $prods, $total) {
@@ -97,26 +107,34 @@ class PagesController extends Controller
             $fields['total'] -= round($fields['total'] * 0.1, 2);
         }
 
-        // filtrar produtos da categoria 2
-        $prods_cat2 = array_where($prods, function ($prod, $key) {
-            return $prod->category == 2;
-        });
+        // filtrar produtos da categoria 1
+        $prods_cat1 = $this->get_prods_from_cat($prods, 1);
         
-        $qtd_cat2 = array_sum(array_column($prods_cat2, 'qtd')); // quantidade de produtos da categoria 2
+        $qtd_cat1 = array_sum(array_column($prods_cat1, 'qtd')); // quantidade de produtos da categoria 1
 
-        if($qtd_cat2 >= 2) {
+        if($qtd_cat1 >= 2) {
             $cheapest_prod_val = collect($prods)->min('price');
-            $fields['total'] -= round($cheapest_prod_val * 0.4, 2);
+            $fields['total'] -= round($cheapest_prod_val * 0.2, 2);
         }
 
         $fields['id_customer'] = $customer->id;
         $fields['date'] = time();
         $order = \App\Order::create($fields);
+
         return $order;
     }
 
-    protected function get_offer($order) {
+    protected function get_offers_and_attach($order, $prods, $to_attach) {
+        // filtrar produtos da categoria 2
+        $prods_cat2 = $this->get_prods_from_cat($prods, 2);
         
+        $qtd_cat2 = array_sum(array_column($prods_cat2, 'qtd')); // quantidade de produtos da categoria 1
+
+        if($qtd_cat2 >= 5) {
+            $prod_offer = $prods_cat2[array_rand($prods_cat2)]; // escolher aleatoriamnete produto da categoria 2 para oferta
+            $to_attach[$prod_offer->id]['quantity'] += 1;
+        }
+        $order->products()->attach($to_attach);
     }
 
 }

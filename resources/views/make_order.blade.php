@@ -81,7 +81,7 @@
                             <div class="col-xs-12 no-padding" id="prods-selection">
                                 @foreach($products as $p)
                                     <div class="col-xs-6 no-padding">
-                                        {{$p->description}} ({{$p->category}})
+                                        {{$p->description}} ({{$p->category->name}})
                                     </div>
                                     <div class="col-xs-6 no-padding">
                                         <input data-price="{{$p->price}}" class="input-qtd" steps="0" min="1" type="number" name="quantities[{{$p->id}}]">
